@@ -18,14 +18,11 @@ def get_cats_info(path):
 
                 cat_id, name, age = parts
 
-                try:
-                    cats_info.append({
-                        "id": cat_id.strip(),
-                        "name": name.strip(),
-                        "age": int(age.strip())
-                    })
-                except ValueError:
-                    continue
+                cats_info.append({
+                    "id": cat_id.strip(),
+                    "name": name.strip(),
+                    "age": age.strip()
+                })
 
     except FileNotFoundError:
         print(f"Файл за шляхом {path} не знайдено.")
@@ -34,9 +31,7 @@ def get_cats_info(path):
     except Exception as e:
         print(f"Сталася помилка: {e}")
         return []
-
     return cats_info
-
 
 cats_info = get_cats_info(cats_file)
 print(cats_info)
